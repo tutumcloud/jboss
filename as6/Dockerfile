@@ -1,9 +1,13 @@
 FROM tifayuki/java:6
 MAINTAINER Feng Honglin <hfeng@tutum.co>
 
-RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget pwgen unzip
-RUN wget -q http://download.jboss.org/jbossas/6.1/jboss-as-distribution-6.1.0.Final.zip && unzip -qq jboss-as-distribution-6.1.0.Final.zip && rm jboss-as-distribution-6.1.0.Final.zip
+RUN apt-get update && \
+    apt-get install -y pwgen unzip && \
+    wget -q http://download.jboss.org/jbossas/6.1/jboss-as-distribution-6.1.0.Final.zip && \
+    unzip -q jboss-as-distribution-6.1.0.Final.zip && \
+    rm jboss-as-distribution-6.1.0.Final.zip && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 ADD jmx-console.web.xml /jboss-6.1.0.Final/common/deploy/jmx-console.war/WEB-INF/web.xml
 ADD jmx-console.jboss-web.xml /jboss-6.1.0.Final/common/deploy/jmx-console.war/WEB-INF/jboss-web.xml
