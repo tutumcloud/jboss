@@ -1,4 +1,4 @@
-FROM tifayuki/java:java6
+FROM tifayuki/java:6
 MAINTAINER Feng Honglin <hfeng@tutum.co>
 
 RUN apt-get update
