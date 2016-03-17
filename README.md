@@ -1,5 +1,9 @@
 tutum-docker-jboss
 ==================
+
+**This image will be deprecated soon. Please use the image provided by the software provider: ** https://hub.docker.com/u/jboss/
+
+
 Base docker image to run a JBoss application server
 
 
